@@ -1,0 +1,51 @@
+\fancyhf{} 
+\fancyfoot[C]{\thepage}
+
+
+\chapter{PENDAHULUAN}
+
+\section{\uppercase{LATAR BELAKANG}}
+Pelaksanaan absensi kehadiran perkuliahan adalah suatu kewajiban di banyak universitas untuk mencatat kehadiran dosen dan peserta mata kuliah. Absensi perkuliahan merupakan catatan kehadiran saat mengikuti proses perkuliahan \citep{Setiawan2015}. Saat ini absensi perkuliahan di Jurusan Informatika (JIF) Universitas Syiah Kuala (Unsyiah) menggunakan Web Sistem Informasi Perkuliahan (SIMkuliah) serta diiringi dengan absen menggunakan kertas sebagai \textit{backup}. Ketika akan melakukan absen menggunakan SIMkuliah, dosen dan mahasiswa harus melakukan \textit{log in} setiap saat ketika perkuliahan berlangsung. Dosen melakukan \textit{log in} dengan cara memasukkan Nomor Induk Pegawai (NIP) dan kata sandi yang sama dengan Sistem Informasi Kepegawaian (Simpeg) Unsyiah. Sedangkan mahasiswa, \textit{log in} dengan cara dengan memasukkan Nomor Pokok Mahasiswa (NPM) dan kata sandi yang sama dengan sistem Kartu Rencana Studi Online (KRS Online) Unsyiah. Maka dari itu, perlu dikembangkan sebuah teknologi yang dapat mencatat kehadiran dosen dan mahasiswa tanpa perlu menandatangani absen kertas dan melakukan \textit{log in} setiap saat. 
+
+\par Salah satu teknologi yang digunakan sekarang ini untuk melacak posisi suatu objek di sebuah tempat adalah \textit{Global Positioning System} (GPS). Pada tahun 2017, telah dilakukan penelitian dengan membangun sebuah aplikasi absensi kehadiran perkuliahan menggunakan GPS. Aplikasi tersebut bekerja dengan cara memvalidasi kehadiran setiap mahasiswa berdasarkan jarak antara mahasiswa dan dosen pengajar berdasarkan titik koordinatnya. Jika mahasiswa berada pada jarak yang valid yaitu kurang dari 30 meter, maka mahasiswa tersebut dikatakan hadir di dalam jadwal perkuliahan \citep{Saputra2019}. Namun, teknologi GPS tidak dapat digunakan di dalam gedung karena teknologi tersebut memiliki akurasi yang buruk untuk mengetahui keberadaan lokasi objek di dalam gedung, untuk itu diperlukan sistem yang dapat mengetahui posisi suatu objek di dalam gedung dengan akurasi yang lebih tinggi \citep{Keluza2017}. 
+
+\par Hal di atas kemudian melatarbelakangi penelitian ini. Penelitian ini akan membangun sebuah aplikasi yang bertujuan untuk mengetahui posisi suatu individu yang berada di dalam gedung untuk melakukan pencatatan kehadiran perkuliahan dengan mengimplementasikan \textit{Location Based Service} (LBS). LBS adalah layanan yang menyediakan informasi pengguna berdasarkan lokasi pengguna \citep{Virrantaus2001}. LBS untuk kasus area tertutup disebut \textit{Indoor Positioning System} \citep{brena2017}. Layanan ini tidak mengizinkan dosen dan mahasiswa melakukan pencatatan kehadiran perkuliahan jika dosen dan mahasiswa yang bersangkutan berada diluar gedung. Layanan IPS ini nantinya akan diimplementasikan pada \textit{smartphone} Android yang dimiliki oleh setiap dosen dan mahasiswa.
+
+\par Teknologi IPS yang akan digunakan pada penelitian ini adalah \textit{Bluetooth Low Energy} (BLE). Pada proses implementasi, ruang perkuliahan JIF Unsyiah akan dipasang sebanyak 9 alat transmisi BLE yang disebut Beacon, dengan masing-masing tata cara pemasangannya yaitu 6 Beacon diletakkan pada Ruang Kuliah B.03.02 di Blok B lantai 3 dan 3 Beacon diletakkan pada Ruang Kuliah  E.02.07 di Blok E lantai 2 pada gedung Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA) Unsyiah. Beacon tersebut memiliki fungsi sebagai pemancar gelombang radio untuk mengirimkan kekuatan sinyal secara berkala \citep{Noguchi2015}. Kemudian, \textit{smartphone} pengguna akan menangkap indeks kekuatan sinyal atau dapat disebut dengan \textit{Received Signal Strength Indicator} (RSSI) dari pancaran sinyal Beacon tersebut. Metode \textit{Fingerprinting} digunakan pada penelitian ini untuk mengumpulkan data-data nilai RSSI pada 9 Beacon di lokasi uji. Data-data yang dikumpulkan tersebut berbentuk numerik. Oleh karena itu, metode klasifikasi numerik seperti \textit{K-Nearest Neighbor} (K-NN) dapat digunakan untuk memperkirakan lokasi pengguna.
+
+\fancyhf{} 
+\fancyfoot[R]{\thepage}
+
+\section{\uppercase{RUMUSAN MASALAH}}
+Berdasarkan latar belakang di atas, permasalahan dalam penelitian ini dapat dirumuskan sebagai berikut:
+\begin{enumerate}
+	\item Bagaimana mengimplementasikan \textit{Indoor Positioning System} berbasis BLE untuk proses pencatatan data kehadiran dosen dan kehadiran mahasiswa. 
+	\item Bagaimana tingkat akurasi prediksi setiap lokasi dosen dan mahasiswa saat melakukan proses pencatatan kehadiran perkuliahan menggunakan \textit{Indoor Positioning System} berbasis BLE.
+	\item Bagaimana tingkat akurasi prediksi lokasi dosen dan mahasiswa untuk kasus berada disekitar lokasi kelas yang berdekatan dengan menggunakan \textit{Indoor Positioning System} berbasis BLE.
+\end{enumerate}
+
+\section{\uppercase{TUJUAN PENELITIAN}}
+Berdasarkan rumusan masalah yang telah disebutkan sebelumnya, maka dapat dipaparkan tujuan dari tugas akhir ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Mengimplementasikan cara kerja layanan \textit{Indoor Positioning System} berbasis BLE untuk proses pencatatan kehadiran perkuliahan dengan menggunakan aplikasi berbasis Android.
+	\item Mengimplementasikan algoritma \textit{\textit{K-Nearest Neighbor}} (K-NN) untuk klasifikasi penentuan lokasi setiap dosen dan mahasiswa pada ruang kuliah. 
+	\item Menganalisa keakuratan \textit{reference point} yang dipetakan secara urut dan acak pada proses survei penelitian berdasarkan jumlah Beacon yang digunakan.
+	\item Menganalisa fungsionalitas aplikasi menggunakan metode \textit{Black Box Testing} dan menganalisa usabilitas aplikasi menggunakan metode \textit{System Usability Scale} (SUS).
+\end{enumerate}
+
+
+\section{\uppercase{MANFAAT PENELITIAN}}
+Adapun manfaat dari penelitian ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Memberikan kemudahan untuk mahasiswa dan dosen dalam melakukan proses pencatatan kehadiran perkuliahan dengan menggunakan aplikasi yang telah dibangun.
+	\item Memberikan kemudahan untuk menganalisis data kehadiran yang dikumpulkan, yang akan membantu staf dan karyawan Jurusan Informatika Unsyiah.
+	
+\end{enumerate}
+
+
+% Baris ini digunakan untuk membantu dalam melakukan sitasi
+% Karena diapit dengan comment, maka baris ini akan diabaikan
+% oleh compiler LaTeX.
+\begin{comment}
+\bibliography{daftar-pustaka}
+\end{comment}
